@@ -438,11 +438,54 @@ section{padding:96px 0;}
 }
 .field input:focus,.field textarea:focus{border-color:var(--teal-600);}
 .field textarea{resize:vertical;min-height:130px;}
+.field select{
+  width:100%;padding:13px 16px;border:1px solid var(--line);border-radius:var(--radius-sm);font-family:var(--font-body);
+  font-size:.94rem;background:var(--cream);outline:none;transition:border-color .15s ease;appearance:auto;
+}
+.field select:focus{border-color:var(--teal-600);}
+.field input[type="file"]{padding:11px 14px;background:var(--white);cursor:pointer;}
+.field-hint{margin-top:6px;font-size:.8rem;color:var(--ink-300);}
+.field-checkbox{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;}
+.field-checkbox input{width:auto;margin-top:4px;accent-color:var(--teal-600);}
+.field-checkbox label{font-size:.88rem;color:var(--ink-700);font-weight:500;}
 @media (max-width:920px){.contact-grid{grid-template-columns:1fr;}}
 @media (max-width:560px){.form-row{grid-template-columns:1fr;}.contact-form{padding:26px;}}
 
 .form-note{margin-top:16px;font-size:.85rem;color:var(--ink-500);display:none;}
-.form-note.show{display:block;}
+.form-note.show{display:block;background:var(--teal-50);border:1px solid var(--teal-100);border-radius:var(--radius-sm);padding:14px 16px;color:var(--teal-800);font-weight:500;}
+
+/* Explainer cards — auto-wrapping variant of value-card for any card count */
+.explainer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+.explainer-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:26px;}
+.explainer-card h4{font-size:1.02rem;color:var(--teal-900);}
+.explainer-card p{margin-top:10px;font-size:.9rem;color:var(--ink-500);}
+.explainer-card ul{margin-top:10px;padding-left:18px;font-size:.9rem;color:var(--ink-500);}
+.explainer-card ul li{margin-top:4px;}
+
+/* Info / callout box (fee info, coming-soon donation notice, etc.) */
+.info-box{background:var(--teal-50);border:1px solid var(--teal-100);border-left:4px solid var(--teal-600);border-radius:var(--radius-md);padding:26px 28px;}
+.info-box h4{color:var(--teal-900);font-size:1rem;}
+.info-box p{margin-top:8px;font-size:.92rem;color:var(--ink-700);}
+.info-box p+p{margin-top:10px;}
+
+/* Donation cause cards */
+.cause-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;}
+.cause-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:26px;display:flex;flex-direction:column;gap:10px;}
+.cause-card .feature-icon{margin-bottom:4px;}
+.cause-card h4{font-size:1.02rem;color:var(--teal-900);}
+.cause-card p{font-size:.9rem;color:var(--ink-500);flex:1;}
+
+/* Payment gateway placeholders — ready to wire up later */
+.gateway-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:20px;}
+.gateway-btn{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:16px 14px;border:1px dashed var(--line);border-radius:var(--radius-sm);background:#fff;
+  color:var(--ink-300);font-weight:600;font-size:.92rem;cursor:not-allowed;
+}
+.gateway-btn .badge{
+  position:absolute;top:-9px;right:10px;background:var(--ochre-500);color:#fff;font-size:.65rem;
+  font-weight:700;letter-spacing:.03em;padding:2px 8px;border-radius:20px;text-transform:uppercase;
+}
 
 /* utility */
 .text-center{text-align:center;margin-left:auto;margin-right:auto;}

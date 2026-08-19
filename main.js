@@ -81,14 +81,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* Contact / newsletter forms — no backend yet, just confirm receipt */
+  /* Contact / application / newsletter forms — no backend yet, just confirm receipt.
+     Add data-success-message="..." on any <form data-local-form> to show a custom
+     confirmation instead of the generic fallback below. */
   document.querySelectorAll('form[data-local-form]').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const note = form.querySelector('.form-note');
       if (note) {
-        note.textContent = 'Thanks — this site has no backend connected yet, so nothing was actually sent. Once a database is connected, messages will reach the HUDI team directly.';
+        note.textContent = form.dataset.successMessage ||
+          'Thanks — this site has no backend connected yet, so nothing was actually sent. Once a database is connected, messages will reach the HUDI team directly.';
         note.classList.add('show');
+        note.setAttribute('tabindex', '-1');
+        note.focus({ preventScroll: false });
+        note.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
       form.reset();
     });
