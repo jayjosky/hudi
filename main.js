@@ -81,6 +81,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* Growth tracker (impact page) — reads DEMO DATA from the #growth-data
+     JSON block in impact.html and draws a simple bar chart. Replace the
+     numbers in that JSON block with real figures whenever they're ready;
+     no changes needed here. */
+  const growthChart = document.getElementById('growth-chart');
+  const growthDataEl = document.getElementById('growth-data');
+  if (growthChart && growthDataEl) {
+    let growthData = [];
+    try { growthData = JSON.parse(growthDataEl.textContent); } catch (err) { growthData = []; }
+
+    const metricLabels = {
+      beneficiaries: 'Beneficiaries Supported',
+      families: 'Families Assisted',
+      schools: 'Schools Engaged'
+    };
+
+    const renderGrowthChart = (metric) => {
+      const max = Math.max(...growthData.map(d => d[metric] || 0), 1);
+      growthChart.innerHTML = '';
+      growthChart.setAttribute('aria-label', `Bar chart of ${metricLabels[metric] || metric} by year`);
+      growthData.forEach(d => {
+        const value = d[metric] || 0;
+        const pct = Math.max((value / max) * 100, 4);
+        const bar = document.createElement('div');
+        bar.className = 'growth-bar';
+        bar.innerHTML = `
+          <span class="bar-value">${value.toLocaleString()}</span>
+          <div class="bar-fill" style="height:0%" data-final-height="${pct}"></div>
+          <span class="bar-year">${d.year}</span>
+        `;
+        bar.setAttribute('aria-label', `${d.year}: ${value.toLocaleString()}`);
+        growthChart.appendChild(bar);
+      });
+      requestAnimationFrame(() => {
+        growthChart.querySelectorAll('.bar-fill').forEach(fill => {
+          fill.style.height = fill.dataset.finalHeight + '%';
+        });
+      });
+    };
+
+    const metricBtns = document.querySelectorAll('.growth-controls .filter-btn');
+    metricBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        metricBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGrowthChart(btn.dataset.metric);
+      });
+    });
+
+    if (growthData.length) renderGrowthChart('beneficiaries');
+  }
+
   /* Contact / application / newsletter forms — no backend yet, just confirm receipt.
      Add data-success-message="..." on any <form data-local-form> to show a custom
      confirmation instead of the generic fallback below. */
