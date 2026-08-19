@@ -1,0 +1,58 @@
+[
+  {
+    "id": "logwee-simon",
+    "name": "Logwee Simon",
+    "role": "Cofounder & CEO",
+    "initials": "LS",
+    "photo": "images/leaders/logwee-simon.jpg"
+  },
+  {
+    "id": "john-pitia-mathew",
+    "name": "John Pitia Mathew",
+    "role": "Deputy Director",
+    "initials": "JM",
+    "photo": "images/leaders/john-pitia-mathew.jpg"
+  },
+  {
+    "id": "ukor-abraham-arida",
+    "name": "Ukor Abraham Arida",
+    "role": "Area Coordinator",
+    "initials": "UA",
+    "photo": "images/leaders/ukor-abraham-arida.jpg"
+  },
+  {
+    "id": "johnson-ujwoka-owete",
+    "name": "Johnson Ujwoka Owete",
+    "role": "Organization Lead Facilitator",
+    "initials": "JO",
+    "photo": "images/leaders/johnson-ujwoka-owete.jpg"
+  },
+  {
+    "id": "luchano-clement-awath",
+    "name": "Luchano Clement Awath",
+    "role": "Secretary",
+    "initials": "LA",
+    "photo": "images/leaders/luchano-clement-awath.jpg"
+  },
+  {
+    "id": "james-khamis-dario",
+    "name": "James Khamis Dario",
+    "role": "Finance",
+    "initials": "JD",
+    "photo": "images/leaders/james-khamis-dario.jpg"
+  },
+  {
+    "id": "bashir-adam-hassan",
+    "name": "Bashir Adam Hassan",
+    "role": "Operational Officer",
+    "initials": "BH",
+    "photo": "images/leaders/bashir-adam-hassan.jpg"
+  },
+  {
+    "id": "james-kenyi",
+    "name": "James Kenyi",
+    "role": "ICT Officer",
+    "initials": "JK",
+    "photo": "images/leaders/james-kenyi.jpg"
+  }
+]
