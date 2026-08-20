@@ -453,6 +453,7 @@ section{padding:96px 0;}
 
 .form-note{margin-top:16px;font-size:.85rem;color:var(--ink-500);display:none;}
 .form-note.show{display:block;background:var(--teal-50);border:1px solid var(--teal-100);border-radius:var(--radius-sm);padding:14px 16px;color:var(--teal-800);font-weight:500;}
+.form-note.show.error{background:#fdecea;border-color:#f5c2c0;color:#b42318;}
 
 /* Explainer cards — auto-wrapping variant of value-card for any card count */
 .explainer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}

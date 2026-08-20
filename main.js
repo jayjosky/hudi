@@ -133,10 +133,64 @@ document.addEventListener('DOMContentLoaded', () => {
     if (growthData.length) renderGrowthChart('beneficiaries');
   }
 
+  /* Live email sending via EmailJS — used by any <form data-emailjs>.
+     Requires the EmailJS browser SDK <script> tag to be loaded on the page
+     before main.js. Config below is safe to keep client-side: the public
+     key is meant to be publishable (it authorises sending, it doesn't grant
+     account access). */
+  const EMAILJS_PUBLIC_KEY = 'QJSJUtHrG4sd5Vpm2';
+  const EMAILJS_SERVICE_ID = 'service_o1qdmj3';
+  const EMAILJS_TEMPLATE_ID = 'template_o6r6avh';
+
+  if (window.emailjs && typeof emailjs.init === 'function') {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+
+  document.querySelectorAll('form[data-emailjs]').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const note = form.querySelector('.form-note');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn ? submitBtn.textContent : '';
+
+      const showNote = (text, isError) => {
+        if (!note) return;
+        note.textContent = text;
+        note.classList.remove('error');
+        if (isError) note.classList.add('error');
+        note.classList.add('show');
+        note.setAttribute('tabindex', '-1');
+        note.focus({ preventScroll: false });
+        note.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+
+      if (!window.emailjs) {
+        showNote("Something went wrong loading the email service. Please email us directly at info@hudi.org or call +254 700 000 000.", true);
+        return;
+      }
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+        .then(() => {
+          showNote(form.dataset.successMessage || "Thanks — your message has been sent to the HUDI team. We'll get back to you soon.", false);
+          form.reset();
+        })
+        .catch((err) => {
+          console.error('EmailJS error:', err);
+          showNote("Sorry, something went wrong sending your message. Please try again, or email us directly at info@hudi.org.", true);
+        })
+        .finally(() => {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+        });
+    });
+  });
+
   /* Contact / application / newsletter forms — no backend yet, just confirm receipt.
      Add data-success-message="..." on any <form data-local-form> to show a custom
-     confirmation instead of the generic fallback below. */
-  document.querySelectorAll('form[data-local-form]').forEach(form => {
+     confirmation instead of the generic fallback below. Forms marked
+     data-emailjs (handled above) are skipped here so they aren't double-bound. */
+  document.querySelectorAll('form[data-local-form]:not([data-emailjs])').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const note = form.querySelector('.form-note');
