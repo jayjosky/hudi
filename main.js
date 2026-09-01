@@ -4,6 +4,31 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* Dark / light mode toggle. The initial theme is already applied by the
+     small inline script in <head> (before CSS loads) to avoid a flash of
+     the wrong theme; this just wires up the button and keeps preference
+     in localStorage. */
+  const themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    const applyLabel = () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+    };
+    applyLabel();
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      if (next === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+      try { localStorage.setItem('hudi-theme', next); } catch (err) { /* ignore */ }
+      applyLabel();
+    });
+  }
+
   /* Mobile nav toggle */
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.main-nav');

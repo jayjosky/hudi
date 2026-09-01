@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){try{var t=localStorage.getItem('hudi-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();</script>
 <title>HUDI — Hands Up for Disability Inclusion, Kalobeyei Kenya</title>
 <meta name="description" content="HUDI is a community-based organisation in Kalobeyei Settlement, Turkana West, advancing disability inclusion through rehabilitation, inclusive education and empowerment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +32,10 @@
     </nav>
     <div class="header-actions">
       <a class="btn btn-primary" href="contact.html">Get Involved</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -43,7 +48,6 @@
   <section class="hero">
     <div class="hero-media"><img src="images/web-images/landing-image.jpg" alt="Community members with and without disabilities gathered together in Kalobeyei Settlement"></div>
     <div class="hero-content">
-      <div class="hero-location">Kalobeyei &middot; Turkana West, Kenya</div>
       <h1>Opportunities for All,<br><span class="accent">Barriers for None.</span></h1>
       <p>HUDI works to create an inclusive society where persons with disabilities are respected, empowered, and have equal opportunities to thrive.</p>
       <div class="hero-cta">
@@ -163,7 +167,7 @@
   <section>
     <div class="container">
       <div class="story">
-        <div class="story-media"><img src="https://hudicamp.vercel.app/assets/gallery-3-CGcPTIWS.jpg" alt="A smiling learner wearing a hearing aid in an inclusive classroom"></div>
+        <div class="story-media"><img src="images/web-images/success-story.jpg" alt="A HUDI outreach worker with a young girl in her wheelchair outside a shelter in Kalobeyei"></div>
         <div class="story-body">
           <p class="eyebrow">Success Story</p>
           <blockquote>&ldquo;Now my daughter walks to school on her own&rdquo;</blockquote>
