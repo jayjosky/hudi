@@ -91,36 +91,27 @@
   <section>
     <div class="container">
       <div class="section-head">
-        <span class="demo-badge">Demo data</span>
         <p class="eyebrow">Growth Tracker</p>
-        <h2>How our reach has grown</h2>
-        <p>A placeholder view of HUDI's year-on-year growth. The figures below are examples only — they will be replaced with verified programme records.</p>
+        <h2>Our first year, by the numbers</h2>
+        <p>HUDI was founded in 2026, so this is a snapshot of our founding year rather than a year-on-year trend. As more years of programme data come in, this chart will begin to show real growth over time.</p>
       </div>
 
       <div class="growth-card">
-        <div class="growth-controls" role="group" aria-label="Choose a metric">
-          <button class="filter-btn active" data-metric="beneficiaries">Beneficiaries Supported</button>
-          <button class="filter-btn" data-metric="families">Families Assisted</button>
-          <button class="filter-btn" data-metric="schools">Schools Engaged</button>
-        </div>
-        <div class="growth-chart" id="growth-chart" role="img" aria-label="Bar chart of year-on-year growth"></div>
-        <p class="growth-note">Demo figures shown for layout purposes only. Once HUDI shares confirmed annual numbers, this chart will be updated to reflect real growth.</p>
+        <div class="growth-chart" id="growth-chart" role="img" aria-label="Bar chart of HUDI's 2026 founding-year totals"></div>
+        <p class="growth-note">HUDI launched in 2026. The figures above match the totals in the Our Impact section — 30 awareness sessions, 20 students graduated, 5 visual impairment cases assessed and 10 physical disability cases assessed — and will be tracked year over year from here on.</p>
       </div>
 
       <!--
-        DEMO DATA — replace with verified HUDI figures.
-        Each entry is one year; add or edit years and values freely, the chart
-        redraws automatically from this table. Keep the metric keys
-        (beneficiaries / families / schools) the same as the buttons above,
-        or update both together if you rename a metric.
+        Founding-year totals, pulled from the Our Impact section above.
+        Once a second year of data exists, add a "year" field back in and
+        this can return to a year-on-year view.
       -->
       <script type="application/json" id="growth-data">
       [
-        { "year": 2022, "beneficiaries": 150, "families": 90,  "schools": 4  },
-        { "year": 2023, "beneficiaries": 310, "families": 180, "schools": 8  },
-        { "year": 2024, "beneficiaries": 520, "families": 310, "schools": 12 },
-        { "year": 2025, "beneficiaries": 780, "families": 470, "schools": 15 },
-        { "year": 2026, "beneficiaries": 1200,"families": 640, "schools": 18 }
+        { "label": "Awareness Sessions", "value": 30 },
+        { "label": "Students Graduated", "value": 20 },
+        { "label": "Visual Impairment", "value": 5 },
+        { "label": "Physical Disability", "value": 10 }
       ]
       </script>
     </div>

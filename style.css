@@ -542,18 +542,11 @@ section{padding:96px 0;}
 .text-center{text-align:center;margin-left:auto;margin-right:auto;}
 
 /* Growth tracker (impact page) */
-.demo-badge{
-  display:inline-flex;align-items:center;gap:6px;background:var(--ochre-100);color:var(--ochre-600);
-  font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:5px 12px;border-radius:20px;
-  margin-bottom:14px;
-}
-.demo-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ochre-600);}
 .growth-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-card);}
-.growth-controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
 .growth-chart{display:flex;align-items:flex-end;gap:clamp(10px,3vw,28px);height:230px;padding:0 4px;border-bottom:2px solid var(--line);}
 .growth-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0;}
 .growth-bar .bar-value{font-family:var(--font-display);font-weight:700;color:var(--teal-900);margin-bottom:8px;font-size:clamp(.85rem,2vw,1.05rem);white-space:nowrap;}
 .growth-bar .bar-fill{width:100%;max-width:56px;background:linear-gradient(180deg,var(--ochre-400),var(--teal-600));border-radius:8px 8px 0 0;transition:height .9s cubic-bezier(.22,.9,.35,1);}
-.growth-bar .bar-year{margin-top:12px;font-size:.85rem;color:var(--ink-500);font-weight:600;}
+.growth-bar .bar-year{margin-top:12px;font-size:.8rem;color:var(--ink-500);font-weight:600;text-align:center;line-height:1.25;padding:0 2px;}
 .growth-note{margin-top:24px;font-size:.85rem;color:var(--ink-500);font-style:italic;}
 @media (max-width:560px){.growth-card{padding:24px 18px;}.growth-chart{height:190px;}}
