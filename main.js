@@ -68,44 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(c => observer.observe(c));
   }
 
-  /* Testimonial slider */
-  const slides = document.querySelectorAll('.testimonial-slide');
-  if (slides.length) {
-    let current = 0;
-    const show = (i) => {
-      slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
-    };
-    document.querySelector('[data-slide="prev"]')?.addEventListener('click', () => {
-      current = (current - 1 + slides.length) % slides.length;
-      show(current);
-    });
-    document.querySelector('[data-slide="next"]')?.addEventListener('click', () => {
-      current = (current + 1) % slides.length;
-      show(current);
-    });
-    setInterval(() => {
-      current = (current + 1) % slides.length;
-      show(current);
-    }, 6000);
-  }
-
-  /* Gallery filter */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  if (filterBtns.length) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const cat = btn.dataset.filter;
-        galleryItems.forEach(item => {
-          const show = cat === 'all' || item.dataset.category === cat;
-          item.style.display = show ? '' : 'none';
-        });
-      });
-    });
-  }
-
   /* Growth tracker (impact page) — reads DEMO DATA from the #growth-data
      JSON block in impact.html and draws a simple bar chart. Replace the
      numbers in that JSON block with real figures whenever they're ready;
