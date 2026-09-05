@@ -51,7 +51,6 @@
 
   <div class="page-header">
     <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="get-involved.html">Get Involved</a><span>/</span><span>Give Today</span></div>
       <a class="back-link" href="get-involved.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Back to Get Involved
@@ -143,10 +142,10 @@
         </a>
         <p>Hands Up for Disability Inclusion — a community-based organisation in Kalobeyei Settlement, Turkana West, Kenya.</p>
         <div class="footer-social">
-          <a href="contact.html" aria-label="Facebook">f</a>
-          <a href="contact.html" aria-label="Twitter">x</a>
-          <a href="contact.html" aria-label="Instagram">i</a>
-          <a href="contact.html" aria-label="LinkedIn">in</a>
+          <span class="social-disabled" aria-label="Facebook (coming soon)" aria-disabled="true" title="Coming soon">f</span>
+          <span class="social-disabled" aria-label="Twitter (coming soon)" aria-disabled="true" title="Coming soon">x</span>
+          <span class="social-disabled" aria-label="Instagram (coming soon)" aria-disabled="true" title="Coming soon">i</span>
+          <span class="social-disabled" aria-label="LinkedIn (coming soon)" aria-disabled="true" title="Coming soon">in</span>
         </div>
       </div>
       <div>
@@ -195,5 +194,14 @@
 </footer>
 
 <script src="main.js"></script>
+
+<div class="modal-overlay" id="payment-modal" role="dialog" aria-modal="true" aria-labelledby="payment-modal-title" hidden>
+  <div class="modal-box">
+    <h3 id="payment-modal-title">Online Giving Is Coming Soon</h3>
+    <p>Our online payment system isn't ready yet. In the meantime, please reach out to us directly using the contact details on this page to make a donation.</p>
+    <button class="btn btn-primary" id="payment-modal-ok" type="button">Okay</button>
+  </div>
+</div>
+
 </body>
 </html>

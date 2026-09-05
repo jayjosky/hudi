@@ -68,10 +68,32 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(c => observer.observe(c));
   }
 
-  /* Growth tracker (impact page) — reads DEMO DATA from the #growth-data
-     JSON block in impact.html and draws a simple bar chart. Replace the
-     numbers in that JSON block with real figures whenever they're ready;
-     no changes needed here. */
+  /* Payment "coming soon" modal (donate page only) */
+  const paymentModal = document.getElementById('payment-modal');
+  if (paymentModal) {
+    paymentModal.hidden = false;
+    document.getElementById('payment-modal-ok')?.addEventListener('click', () => {
+      window.location.href = 'get-involved.html';
+    });
+  }
+
+  /* Testimonials — "See more" reveals any testimonials marked as extra */
+  document.querySelectorAll('.testimonials-toggle').forEach(btn => {
+    const slider = btn.closest('.container')?.querySelector('.testimonial-slider');
+    const extras = slider ? slider.querySelectorAll('.testimonial-extra') : [];
+    if (!extras.length) { btn.style.display = 'none'; return; }
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      extras.forEach(el => { el.hidden = expanded; });
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.textContent = expanded ? 'See more testimonials' : 'See fewer testimonials';
+    });
+  });
+
+  /* Growth tracker (impact page) — reads HUDI's 2026 founding-year totals
+     from the #growth-data JSON block in impact.html and draws a simple
+     bar chart. Update the numbers there (and in the Our Impact section)
+     as real figures change; no changes needed here. */
   const growthChart = document.getElementById('growth-chart');
   const growthDataEl = document.getElementById('growth-data');
   if (growthChart && growthDataEl) {

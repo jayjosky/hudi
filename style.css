@@ -197,10 +197,6 @@ p{margin:0;}
   content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;
   background:radial-gradient(circle,rgba(217,142,62,.35),transparent 70%);
 }
-.breadcrumb{display:flex;gap:8px;font-size:.85rem;color:#a9ccc4;margin-bottom:18px;}
-.breadcrumb a{color:#a9ccc4;}
-.breadcrumb a:hover{color:#fff;}
-
 .back-link{
   display:inline-flex;align-items:center;gap:8px;
   font-size:.88rem;font-weight:600;color:#cfe3dd;margin-bottom:22px;
@@ -323,6 +319,12 @@ section{padding:96px 0;}
 .testimonial-slide .who span{color:var(--ink-500);font-weight:400;}
 @media (max-width:900px){.testimonial-slider{grid-template-columns:1fr 1fr;}}
 @media (max-width:620px){.testimonial-slider{grid-template-columns:1fr;}}
+.testimonials-toggle-wrap{display:flex;justify-content:center;margin-top:28px;}
+.testimonials-toggle{
+  border:1px solid var(--line);background:var(--surface);border-radius:100px;padding:10px 22px;font-size:.85rem;font-weight:600;
+  cursor:pointer;color:var(--teal-800);
+}
+.testimonials-toggle:hover{background:var(--teal-100);}
 
 /* Partners */
 .partner-strip{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
@@ -371,11 +373,11 @@ section{padding:96px 0;}
 .footer-brand .brand-text span{color:#9fc0b7;}
 .footer-brand p{margin-top:16px;font-size:.92rem;color:#9fc0b7;max-width:280px;}
 .footer-social{display:flex;gap:10px;margin-top:20px;}
-.footer-social a{
+.footer-social .social-disabled{
   width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.25);
   display:flex;align-items:center;justify-content:center;font-size:.8rem;
+  color:rgba(255,255,255,.45);cursor:not-allowed;user-select:none;
 }
-.footer-social a:hover{background:rgba(255,255,255,.12);}
 .site-footer h4{color:#fff;font-family:var(--font-body);font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px;}
 .site-footer ul{display:flex;flex-direction:column;gap:11px;}
 .site-footer a{font-size:.92rem;color:#b9d5cc;}
@@ -550,3 +552,20 @@ section{padding:96px 0;}
 .growth-bar .bar-year{margin-top:12px;font-size:.8rem;color:var(--ink-500);font-weight:600;text-align:center;line-height:1.25;padding:0 2px;}
 .growth-note{margin-top:24px;font-size:.85rem;color:var(--ink-500);font-style:italic;}
 @media (max-width:560px){.growth-card{padding:24px 18px;}.growth-chart{height:190px;}}
+
+/* Payment "coming soon" modal (donate page) */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(11,25,22,.55);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay[hidden]{display:none;}
+.modal-box{
+  background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-pop);
+  max-width:420px;width:100%;padding:32px;text-align:center;
+  animation:modalPop .25s ease;
+}
+@keyframes modalPop{from{opacity:0;transform:translateY(12px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+.modal-box h3{font-family:var(--font-display);font-size:1.3rem;color:var(--teal-900);margin-bottom:12px;}
+.modal-box p{color:var(--ink-700);font-size:.95rem;line-height:1.55;margin-bottom:24px;}
+.modal-box .btn{width:100%;}
